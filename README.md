@@ -1,4 +1,4 @@
-# DebateVerse: Real-Time Video Debate Platform with AI Fact-Checking
+#🎙️ DebateVerse: Real-Time Video Debate Platform with AI Fact-Checking
 
 [![React](https://img.shields.io/badge/React-Vite-blue?logo=react)](https://reactjs.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-Express-green?logo=nodedotjs)](https://nodejs.org/)
@@ -11,35 +11,36 @@ DebateVerse is a web application enabling users to engage in real-time, 1-on-1 v
 
 ## ✨ Features
 
-*   **Landing Page:** Static introductory page showcasing features and available debates.
-*   **Room Creation & Joining:** Users can create new debate rooms (generating a unique code) or join existing ones using a code.
-*   **Real-time Video/Audio:** Peer-to-peer video and audio communication using WebRTC.
-*   **Live Transcription:** Captures user speech using the Web Speech API and displays it in a dedicated transcript panel.
-*   **AI Fact-Checking (via Secure Backend):** Transcribed statements are sent to a backend server, which securely queries the Google Gemini API to assess the factual accuracy or nature (opinion/speculation) of the claim.
-*   **Fact-Check Display:** Transcripts are visually annotated (e.g., color-coded borders) based on the AI's fact-check result (Fact, Opinion/Inaccurate, Error).
-*   **Basic Controls:** Mute/unmute microphone, turn camera on/off, leave/end room.
-*   **Interactive UI:** Built with React and styled with Tailwind CSS for a modern look and feel.
-*   **State Management:** Uses React hooks (`useState`, `useEffect`, `useRef`, `useCallback`) and custom hooks (`useWebRTC`, `useSpeechRecognition`).
-*   **Signaling:** Firebase Firestore is used as the signaling server to exchange WebRTC connection details (offers, answers, ICE candidates) and transcript messages between peers.
+*   **🏠 Landing Page:** Static introductory page showcasing features and available debates.
+*   **🚪 Room Creation & Joining:** Users can create new debate rooms (generating a unique code) or join existing ones using a code.
+*   **🎥 Real-time Video/Audio:** Peer-to-peer video and audio communication using WebRTC.
+*   **✍️ Live Transcription:** Captures user speech using the Web Speech API and displays it in a dedicated transcript panel.
+*   **🤖 AI Fact-Checking (via Secure Backend):** Transcribed statements are sent to a backend server, which securely queries the Google Gemini API to assess the factual accuracy or nature (opinion/speculation) of the claim.
+*   **🚦 Fact-Check Display:** Transcripts are visually annotated (e.g., color-coded borders) based on the AI's fact-check result (Fact, Opinion/Inaccurate, Error).
+*   **💬 Real-Time Chat:** Separate text-based chat functionality within the sidebar for participants to communicate via typing.
+*   **🖱️ Basic Controls:** Mute/unmute microphone, turn camera on/off, leave/end room.
+*   **🎨 Interactive UI:** Built with React and styled with Tailwind CSS for a modern look and feel.
+*   **⚙️ State Management:** Uses React hooks (`useState`, `useEffect`, `useRef`, `useCallback`) and custom hooks (`useWebRTC`, `useSpeechRecognition`).
+*   **📡 Signaling:** Firebase Firestore is used as the signaling server to exchange WebRTC connection details (offers, answers, ICE candidates) and transcript/chat messages between peers.
 
 ## 🚀 Technology Stack
 
 **Frontend:**
 
-*   **Framework/Library:** React (using Vite for build tooling)
-*   **Styling:** Tailwind CSS
-*   **Real-time Communication:** WebRTC (Browser APIs)
-*   **Speech-to-Text:** Web Speech API (Browser built-in)
-*   **State Management:** React Hooks
-*   **Firebase:** Firebase SDK (v9 Compat for Firestore)
+*   **Framework/Library:** React ⚛️ (using Vite ⚡ for build tooling)
+*   **Styling:** Tailwind CSS 🎨
+*   **Real-time Communication:** WebRTC (Browser APIs) 🌐
+*   **Speech-to-Text:** Web Speech API (Browser built-in) 🗣️
+*   **State Management:** React Hooks ⚙️
+*   **Firebase:** Firebase SDK (v9 Compat for Firestore) 🔥
 
 **Backend:**
 
-*   **Framework:** Node.js with Express.js
-*   **API Calls:** `node-fetch` (to call Gemini API)
-*   **Environment Variables:** `dotenv` (to securely manage API keys)
-*   **CORS:** `cors` middleware
-*   **AI:** Google Gemini API (e.g., `gemini-1.5-flash-latest`)
+*   **Framework:** Node.js with Express.js 🟩
+*   **API Calls:** `node-fetch` (to call Gemini API) ➡️
+*   **Environment Variables:** `dotenv` (to securely manage API keys) 🔑
+*   **CORS:** `cors` middleware 🛡️
+*   **AI:** Google Gemini API (e.g., `gemini-1.5-flash-latest`) 🤖
 
 **Signaling & Data:**
 
@@ -105,8 +106,6 @@ Here's a glimpse of the DebateVerse platform:
 ![DebateVerse Real-Time Chat](frontend/screenshots/05.png)  
 *Seamless real-time messaging between participants during debates.*
 
-
-## 📁 Project Structure
 ## 🛠️ Setup & Installation
 
 **Prerequisites:**
@@ -182,6 +181,50 @@ Here's a glimpse of the DebateVerse platform:
     *   `PORT`: The port the backend Express server will listen on (defaults to 3000 if not set).
 *   **Frontend (`frontend/src/firebaseConfig.js`):**
     *   Contains the necessary keys and IDs to connect your frontend application to your specific Firebase project for Firestore access.
+      
+ 
+## 📁 Project Structure :-
+debate-arena/
+├── backend/
+│ ├── node_modules/
+│ ├── .env # <--- Stores secret API key (DO NOT COMMIT)
+│ ├── package.json
+│ ├── package-lock.json
+│ └── server.js # Express server, handles Gemini API calls
+│
+├── frontend/
+│ ├── node_modules/
+│ ├── public/
+│ ├── src/
+│ │ ├── components/ # Reusable UI components
+│ │ │ ├── landing/ # Components specific to landing page
+│ │ │ │ ├── LandingNavbar.jsx
+│ │ │ │ ├── LandingHero.jsx
+│ │ │ │ └── ... other landing components
+│ │ │ ├── ChatArea.jsx
+│ │ │ ├── ControlsBar.jsx
+│ │ │ ├── Header.jsx
+│ │ │ ├── InitialForms.jsx
+│ │ │ ├── Sidebar.jsx
+│ │ │ ├── TranscriptArea.jsx
+│ │ │ └── VideoGrid.jsx
+│ │ ├── hooks/ # Custom React hooks
+│ │ │ ├── useSpeechRecognition.js
+│ │ │ └── useWebRTC.js
+│ │ ├── App.jsx # Main application component, state management
+│ │ ├── firebaseConfig.js # Firebase initialization
+│ │ ├── index.css # Tailwind directives & base styles
+│ │ └── main.jsx # React root rendering
+│ ├── .gitignore
+│ ├── index.html
+│ ├── package.json
+│ ├── package-lock.json
+│ ├── postcss.config.js
+│ └── tailwind.config.js
+│
+└── .gitignore # Top-level gitignore
+└── README.md # This file
+
 
 ## 🔒 Security Considerations
 
@@ -191,17 +234,15 @@ Here's a glimpse of the DebateVerse platform:
 
 ## 🌱 Future Improvements
 
-*   User Authentication (Login/Sign Up)
-*   Support for multiple participants (>2) using an SFU (Selective Forwarding Unit) like Mediasoup or LiveKit.
-*   Persistent Chat feature within the sidebar.
-*   Participants List display.
-*   Screen Sharing capability.
-*   More robust error handling and UI feedback.
-*   Deployment guides (Vercel, Netlify, Cloud Run, etc.).
-*   Refined fact-checking prompts and potentially allowing users to select different AI models.
-*   Database structure for saving past debates/transcripts.
-*   Unit and integration tests.
+*   👨‍👩‍👧‍👦 Multi-participant support (>2) using an SFU (e.g., Mediasoup, LiveKit).
+*   💾 Persistent Chat History.
+*   👤 Participants List display.
+*   ✨ More robust error handling & UI feedback.
+*   🚀 Deployment Guides (Vercel, Netlify, Cloud Run).
+*   🧠 Refined fact-checking prompts / Model selection.
+*   🗄️ Database structure for past debates.
+*   🧪 Unit & Integration Tests.
 
 ---
 
-*Remember to replace placeholder information like `<your-repository-url>` and add details specific to your project if needed.*
+*Remember to replace placeholder information like `https://github.com/vipul-space23/Debate-Arena.git` and add details specific to your project if needed.*
