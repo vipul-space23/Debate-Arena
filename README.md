@@ -181,49 +181,6 @@ Here's a glimpse of the DebateVerse platform:
     *   `PORT`: The port the backend Express server will listen on (defaults to 3000 if not set).
 *   **Frontend (`frontend/src/firebaseConfig.js`):**
     *   Contains the necessary keys and IDs to connect your frontend application to your specific Firebase project for Firestore access.
-      
- 
-## 📁 Project Structure :-
-debate-arena/
-├── backend/
-│ ├── node_modules/
-│ ├── .env # <--- Stores secret API key (DO NOT COMMIT)
-│ ├── package.json
-│ ├── package-lock.json
-│ └── server.js # Express server, handles Gemini API calls
-│
-├── frontend/
-│ ├── node_modules/
-│ ├── public/
-│ ├── src/
-│ │ ├── components/ # Reusable UI components
-│ │ │ ├── landing/ # Components specific to landing page
-│ │ │ │ ├── LandingNavbar.jsx
-│ │ │ │ ├── LandingHero.jsx
-│ │ │ │ └── ... other landing components
-│ │ │ ├── ChatArea.jsx
-│ │ │ ├── ControlsBar.jsx
-│ │ │ ├── Header.jsx
-│ │ │ ├── InitialForms.jsx
-│ │ │ ├── Sidebar.jsx
-│ │ │ ├── TranscriptArea.jsx
-│ │ │ └── VideoGrid.jsx
-│ │ ├── hooks/ # Custom React hooks
-│ │ │ ├── useSpeechRecognition.js
-│ │ │ └── useWebRTC.js
-│ │ ├── App.jsx # Main application component, state management
-│ │ ├── firebaseConfig.js # Firebase initialization
-│ │ ├── index.css # Tailwind directives & base styles
-│ │ └── main.jsx # React root rendering
-│ ├── .gitignore
-│ ├── index.html
-│ ├── package.json
-│ ├── package-lock.json
-│ ├── postcss.config.js
-│ └── tailwind.config.js
-│
-└── .gitignore # Top-level gitignore
-└── README.md # This file
 
 
 ## 🔒 Security Considerations
